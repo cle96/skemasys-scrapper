@@ -9,7 +9,7 @@ argv.type( 'getCalendarForSubjects', function(value)  {
     //filters invalid urls in case of invalid arguments
     const urls = value.split(",").map((name)=>{return classes[name]}).filter((element)=>{return element!= undefined});
 
-    scrapper.getDataFromUrls([classes[value]])
+    scrapper.getDataFromUrls(urls)
         .then((data)=>{
             console.log(data);
         });
