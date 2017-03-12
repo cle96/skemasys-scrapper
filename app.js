@@ -1,4 +1,4 @@
-const argv = require( 'argv' );
+const argv = require('argv');
 const scrapper = require('./scrapper');
 
 const classes = {cSharp:'https://skemasys.akademiaarhus.dk/index.php?educationId=1&menuId=1&account=timetable_subject&subjectId=12426',algorithms:'https://skemasys.akademiaarhus.dk/index.php?educationId=1&menuId=1&account=timetable_subject&subjectId=12433',databases:'https://skemasys.akademiaarhus.dk/index.php?educationId=1&menuId=1&account=timetable_subject&subjectId=12430'};
