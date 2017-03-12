@@ -49,4 +49,8 @@ function getDataFromUrl(url) {
 exports.getDataFromUrls = (urls)=>{
     const promises = urls.map((url)=> {return getDataFromUrl(url)});
     return Promise.all(promises);
-}
+};
+
+exports.printToConsole = (data,from,to)=>{
+    // console.log(data);
+};
