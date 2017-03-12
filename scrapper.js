@@ -58,15 +58,15 @@ exports.printToConsole = (data,from,to)=>{
     }
     
     calendar.sort((t1,t2)=>{
-        const date1 = getDateWithParsing(t1.date,t1.time);
-        const date2 = getDateWithParsing(t2.date,t2.time);
+        const date1 = this.getDateWithParsing(t1.date,t1.time);
+        const date2 = this.getDateWithParsing(t2.date,t2.time);
 
         return date1 > date2?1:-1;
     });
 
     calendar.filter((t1) => {
         //filter by date
-        var date1 = getDateWithParsing(t1.date,t1.time);
+        var date1 = this.getDateWithParsing(t1.date,t1.time);
 
         from = new Date(from);
         to = new Date(to);
@@ -81,7 +81,7 @@ exports.printToConsole = (data,from,to)=>{
 
 };
 
-function getDateWithParsing(date,time){
+exports.getDateWithParsing = (date, time) => {
     var dt1 = parseInt(date.substring(0, 2));
     var mon1 = parseInt(date.substring(3, 5));
     var yr1 = parseInt(date.substring(6, 10));

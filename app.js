@@ -77,8 +77,31 @@ argv.option({
     name: 'time',
     short:'t',
     type: 'getCalendarForSpecificTime',
-    description:'Will return a calendar filled with classes for specific days or periods',
-    example:''
+    description:'Will return a calendar filled with classes for specific days',
+    example:'node app.js -s cSharp, algorithms, database -t today OR tomorrow OR this_week OR next_week OR this_month'
+});
+
+argv.type('getCalendarForSpecificPeriod',(value)=>{
+    const periods = value.split("_to_").sort((t1,t2)=>{return scrapper.getDateWithParsing(t1,'')>scrapper.getDateWithParsing(t2,'')?1:-1;});
+    var from = scrapper.getDateWithParsing(periods[0],''),to = scrapper.getDateWithParsing(periods[1],'');
+
+    from = from.getUTCFullYear()+'-'+(from.getUTCMonth()+1)+'-'+from.getUTCDate();
+    if(to)
+        to = to.getUTCFullYear()+'-'+(to.getUTCMonth()+1)+'-'+to.getUTCDate();
+
+    scrapper.getDataFromUrls(this.urls)
+        .then((data)=>{
+            scrapper.printToConsole(data,from,to);
+        });
+
+});
+
+argv.option({
+    name: 'period',
+    short: 'p',
+    type: 'getCalendarForSpecificPeriod',
+    description: 'Will return a calendar filled with classes for a specific period',
+    example: 'node app.js -s cSharp, algorithms, database -p 12-03-2017_to_16-03-2017'
 });
 
 argv.run();
