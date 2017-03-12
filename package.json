@@ -1,0 +1,19 @@
+{
+  "name": "skemasys-scrapper",
+  "version": "1.0.0",
+  "description": "Fetched the data from skemasys",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cle96/skemasys-scrapper.git"
+  },
+  "author": "Cristian Leahu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cle96/skemasys-scrapper/issues"
+  },
+  "homepage": "https://github.com/cle96/skemasys-scrapper#readme"
+}

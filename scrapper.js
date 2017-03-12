@@ -2,8 +2,6 @@ const express = require("express");
 const cheerio = require("cheerio");
 const request = require("request");
 
-const cSharpUrl = "https://skemasys.akademiaarhus.dk/index.php?educationId=1&menuId=1&account=timetable_subject&subjectId=12433";
-
 function Timetable(title, date, time) {
     this.title = title;
     this.date = date;
@@ -48,13 +46,7 @@ function getDataFromUrl(url) {
         });
 }
 
-function getDataFromUrls(urls) {
-    const allClasses = [];
+exports.getDataFromUrls = (urls)=>{
     const promises = urls.map((url)=> {return getDataFromUrl(url)});
-    Promise.all(promises).then((data) => {
-                allClasses.push(data);
-                console.log(allClasses);
-        });
-    }
-
-getDataFromUrls([cSharpUrl]);
+    return Promise.all(promises);
+}
