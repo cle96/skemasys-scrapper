@@ -64,21 +64,18 @@ exports.printToConsole = (data,from,to)=>{
         return date1 > date2?1:-1;
     });
 
-    calendar.filter((t1) => {
+    calendar = calendar.filter((t1) => {
         //filter by date
         var date1 = this.getDateWithParsing(t1.date,t1.time);
 
         from = new Date(from);
         to = new Date(to);
-        return date1 >= from && date1 < to;
+        return date1 >= from && date1 <= to;
     }).map((t1) => {
         return t1.title + " " + t1.date + " " + t1.time
-    })
-        .filter((t1, index, self) => self.indexOf(t1) == self.lastIndexOf(t1))
-        .forEach((t1) => {
-            console.log(t1)
-        });
+    });
 
+    calendar = [...new Set(calendar)].forEach((t1)=>console.log(t1));
 };
 
 exports.getDateWithParsing = (date, time) => {
