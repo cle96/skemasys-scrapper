@@ -52,5 +52,38 @@ exports.getDataFromUrls = (urls)=>{
 };
 
 exports.printToConsole = (data,from,to)=>{
-    // console.log(data);
+    var calendar = [];
+    for(var i =0;i<data.length;i++){
+        calendar = calendar.concat(data[i]);
+    }
+    
+    calendar.sort((t1,t2)=>{
+        const date1 = getDateWithParsing(t1.date,t1.time);
+        const date2 = getDateWithParsing(t2.date,t2.time);
+
+        return date1 > date2?1:-1;
+    });
+
+    calendar.filter((t1) => {
+        //filter by date
+        var date1 = getDateWithParsing(t1.date,t1.time);
+
+        from = new Date(from);
+        to = new Date(to);
+        return date1 >= from && date1 < to;
+    }).map((t1) => {
+        return t1.title + " " + t1.date + " " + t1.time
+    })
+        .filter((t1, index, self) => self.indexOf(t1) == self.lastIndexOf(t1))
+        .forEach((t1) => {
+            console.log(t1)
+        });
+
 };
+
+function getDateWithParsing(date,time){
+    var dt1 = parseInt(date.substring(0, 2));
+    var mon1 = parseInt(date.substring(3, 5));
+    var yr1 = parseInt(date.substring(6, 10));
+    return new Date(yr1 + '-' + mon1 + '-' + dt1 + ' ' + time);
+}

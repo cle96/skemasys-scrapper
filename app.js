@@ -67,10 +67,10 @@ argv.type('getCalendarForSpecificTime',(value)=>{
     if(to)
         to = to.getUTCFullYear()+'-'+(to.getUTCMonth()+1)+'-'+to.getUTCDate();
 
-    // scrapper.getDataFromUrls(urls)
-    //     .then((data)=>{
-    //         scrapper.printToConsole(data);
-    //     });
+    scrapper.getDataFromUrls(this.urls)
+        .then((data)=>{
+            scrapper.printToConsole(data,from,to);
+        });
 });
 
 argv.option({
