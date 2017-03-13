@@ -70,12 +70,13 @@ exports.printToConsole = (data,from,to)=>{
 
         from = new Date(from);
         to = new Date(to);
+
         return date1 >= from && date1 <= to;
     }).map((t1) => {
         return t1.title + " " + t1.date + " " + t1.time
     });
 
-    calendar = [...new Set(calendar)].forEach((t1)=>console.log(t1));
+    [...new Set(calendar)].forEach((t1)=>console.log(t1));
 };
 
 exports.getDateWithParsing = (date, time) => {

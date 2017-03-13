@@ -31,10 +31,12 @@ argv.type('getCalendarForSpecificTime',(value)=>{
     switch (value) {
         case'today':
             from = new Date();
+            to = new Date();
             break;
         case'tomorrow':
             from = new Date();
             from.setDate(from.getDate() + 1);
+            to = from;
             break;
         case'this_week':
             from = new Date();
@@ -67,9 +69,9 @@ argv.type('getCalendarForSpecificTime',(value)=>{
             console.log('lel');
             break;
     }
-    from = from.getUTCFullYear()+'-'+(from.getUTCMonth()+1)+'-'+from.getUTCDate();
+    from = from.getUTCFullYear()+'-'+(from.getUTCMonth()+1)+'-'+(from.getUTCDate());
     if(to)
-        to = to.getUTCFullYear()+'-'+(to.getUTCMonth()+1)+'-'+to.getUTCDate();
+        to = to.getUTCFullYear()+'-'+(to.getUTCMonth()+1)+'-'+(to.getUTCDate()) + ' 23:59';
 
     scrapper.getDataFromUrls(this.urls)
         .then((data)=>{
