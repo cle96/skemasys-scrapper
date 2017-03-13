@@ -46,3 +46,12 @@ node app.js -p 13-03-2017_to_17-03-2017
 node app.js -s all -t today
 node app.js -s cSharp -p 18-04-2017_to_17-05-2017
 ```
+
+## Tricks - create alias (Linux)
+```
+vi ~/.bashrc OR gedit ~/.bashrc
+alias timetable='cd ~/<PROJECT_PATH>/skemasys-scrapper/ && node app.js -s all'
+. ~/.bashrc
+
+It will create a shortcut in bash, so you can easily get the tables using "timetable -t today"
+```
