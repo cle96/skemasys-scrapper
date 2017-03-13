@@ -110,4 +110,15 @@ argv.option({
     example: 'node app.js -s cSharp, algorithms, database -p 12-03-2017_to_16-03-2017'
 });
 
+argv.type('getCalendarForCustomUrls',(value)=>{
+    this.urls = value.split(" ");
+});
+
+argv.option({
+    name: 'customUrl',
+    short: 'u',
+    type: 'getCalendarForCustomUrls',
+    description: 'Will return a calendar filled with classes for a specific url in skemasys. Urls have to be inside single quotes and separated by space',
+    example: "node app.js -u 'https://skemasys.akademiaarhus.dk/index.php?educationId=6&menuId=1&account=timetable_class&classId=1822' -t today"
+});
 argv.run();

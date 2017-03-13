@@ -27,6 +27,14 @@ node app.js -s cSharp,databases
 node app.js -s cSharp,algorithms,databases (equivalent of all)
 ```
 
+## Set custom urls
+```
+node app.js -u 'https://skemasys.akademiaarhus.dk/index.php?educationId=6&menuId=1&account=timetable_class&classId=1822' -t today
+node app.js -u 'https://skemasys.akademiaarhus.dk/index.php?educationId=6&menuId=1&account=timetable_class&classId=1822 https://skemasys.akademiaarhus.dk/index.php?educationId=6&menuId=1&account=timetable_class&classId=1825' -t this_week
+
+!!URLS HAVE TO BE INSIDE ' ' AND SEPARATED BY SPACE'!!
+```
+
 ## Set time
 ```
 node app.js -t today
