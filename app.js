@@ -48,7 +48,7 @@ argv.type('getCalendarForSpecificTime',(value)=>{
             from = new Date();
             to = new Date();
             if (from.getDay() <= 5 && from.getDay() > 0) {
-                from.setDate(7 + from.getDay());
+                from.setDate(7 + from.getDate());
                 to.setDate((5-from.getDay())+from.getDate());
             } else if(from.getDay()==1) {
                 //case of saturday
